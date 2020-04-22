@@ -1,5 +1,6 @@
 cask_args appdir: "/Applications"
 brew "git"
+cask "appcleaner"
 cask "clipy"
 cask "google-chrome"
 cask "google-japanese-ime"
