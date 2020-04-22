@@ -1,6 +1,7 @@
 #!/bin/bash
 
 echo "Setup dotfiles"
+cd ~/dotfiles
 for file in .??*; do
     [ "$file" = ".git" ] && continue
     [ "$file" = ".DS_Store" ] && continue
