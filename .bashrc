@@ -1,5 +1,5 @@
 alias ls="ls -GF"
-alias la="ls -a"
+alias la="ls -A"
 alias ll="ls -oha"
 
 cdls ()
