@@ -1,6 +1,6 @@
 alias ls="ls -GF"
-alias la="ls -A"
-alias ll="ls -ohA"
+alias la="ls -a"
+alias ll="ls -oha"
 
 cdls ()
 {
