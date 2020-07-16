@@ -12,7 +12,7 @@ echo "Install HomeBrew"
 if ! type "brew" > /dev/null 2>&1 ; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 fi
-brew bundle --global
+brew bundle --file=~/dotfiles/.Brewfile
 
 echo "Setup MacOS Preferences"
 ~/dotfiles/scripts/macos.sh
