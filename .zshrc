@@ -64,3 +64,36 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # コマンドのスペルを訂正
 setopt correct
+
+# cdr の設定
+# cdr, add-zsh-hook を有効にする
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+# zstyle ':chpwd:*' recent-dirs-max 1000
+
+### peco
+# ctrl + Rで、pecoでhistoryを参照
+function peco-select-history() {
+    # historyを番号なし、逆順、最初から表示。
+    # 順番を保持して重複を削除。
+    # カーソルの左側の文字列をクエリにしてpecoを起動
+    BUFFER="$(history -nr 1 | awk '!a[$0]++' | peco --query "$LBUFFER")"
+    CURSOR=$#BUFFER             # カーソルを文末に移動
+    zle -R -c                   # refresh
+}
+zle -N peco-select-history
+bindkey '^R' peco-select-history
+
+# search a destination from cdr list and cd the destination
+function peco-cdr() {
+  local destination="$(cdr -l | sed 's/^[0-9]* *//' | peco --prompt="cdr >" --query "$LBUFFER")"
+  if [ -n "$destination" ]; then
+    BUFFER="cd $destination"
+    zle accept-line
+  else
+    zle reset-prompt
+  fi
+}
+zle -N peco-cdr
+bindkey '^E' peco-cdr
+
