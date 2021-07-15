@@ -22,7 +22,7 @@ export LANG=ja_JP.UTF-8
 autoload -Uz colors
 colors
 PROMPT='
-%F{black}%K{white} %D %* %F{white}%K{cyan}%F{black}%K{cyan} %c %k%F{cyan}%f '
+%F{black}%K{white} %D{%m/%d %T} %F{white}%K{cyan}%F{black}%K{cyan} %c %k%F{cyan}%f '
 
 # 日本語ファイル名を表示可能にする
 setopt print_eight_bit
