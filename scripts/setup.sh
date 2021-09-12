@@ -8,6 +8,8 @@ for file in .??*; do
     ln -snfv ~/dotfiles/$file ~
 done
 
+ln -snfv ~/dotfiles/git/ignore ~/.config/git/ignore
+
 echo "Install HomeBrew"
 if ! type "brew" > /dev/null 2>&1 ; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
