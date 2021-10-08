@@ -1,0 +1,2 @@
+-o ~/Documents/movie/%(upload_date)s_%(title)s.%(ext)s
+-f 'bestvideo[ext=mp4,vcodec*=avc1]+bestaudio[ext=m4a]/best[ext=mp4]/best'
