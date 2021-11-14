@@ -1,0 +1,3 @@
+-o '~/Documents/movie/%(release_date)s_%(title)s.%(ext)s'
+# Download the best mp4 video available, or the best video if no mp4 available
+-f 'bv*[ext=mp4]+ba[ext=m4a]/b[ext=mp4] / bv*+ba/b'
